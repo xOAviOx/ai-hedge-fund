@@ -199,6 +199,11 @@ export interface RiskExposure {
   weight_pct: number;
 }
 
+export interface CorrelationMatrix {
+  tickers: string[];
+  matrix: (number | null)[][];
+}
+
 export interface RiskReport {
   nav_points: number;
   current_nav: number | null;
@@ -206,6 +211,16 @@ export interface RiskReport {
   max_drawdown_pct: number | null;
   exposure: RiskExposure[];
   note: string;
+  // Phase 6 depth — computed from cached OHLCV
+  benchmark: string;
+  annualized_vol_pct: number | null;
+  var_95_pct: number | null;
+  sharpe: number | null;
+  beta: number | null;
+  portfolio_drawdown_pct: number | null;
+  correlation: CorrelationMatrix;
+  monthly_returns: Record<string, number>;
+  data_points: number;
 }
 
 // ── meta ──────────────────────────────────────────────────────────────

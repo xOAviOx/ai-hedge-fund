@@ -5,6 +5,8 @@ import { money, num, pct, tickerLabel } from '@/lib/format';
 import PageHeader from '@/components/PageHeader';
 import { Empty, ErrorState, Loading, Panel, Stat } from '@/components/ui';
 import DrawdownChart from '@/components/charts/DrawdownChart';
+import CorrelationHeatmap from '@/components/risk/CorrelationHeatmap';
+import MonthlyReturnsHeatmap from '@/components/risk/MonthlyReturnsHeatmap';
 
 export default function RiskPage() {
   const risk = useRisk();
@@ -47,6 +49,37 @@ export default function RiskPage() {
             value={<span className="tnum text-down">{r.max_drawdown_pct != null ? pct(r.max_drawdown_pct, 2, false) : '—'}</span>}
           />
           <Stat label="Observations" value={<span className="tnum">{r.nav_points}</span>} />
+        </div>
+
+        {/* Market-based metrics from cached OHLCV */}
+        <div className="panel grid grid-cols-2 gap-6 p-5 md:grid-cols-5">
+          <Stat
+            label="Annualized vol"
+            value={<span className="tnum">{r.annualized_vol_pct != null ? pct(r.annualized_vol_pct, 1, false) : '—'}</span>}
+          />
+          <Stat
+            label="VaR 95% (1-day)"
+            value={<span className="tnum text-down">{r.var_95_pct != null ? pct(r.var_95_pct, 2, false) : '—'}</span>}
+          />
+          <Stat label="Sharpe" value={<span className="tnum">{r.sharpe != null ? num(r.sharpe, 2) : '—'}</span>} />
+          <Stat
+            label={`Beta vs ${tickerLabel(r.benchmark)}`}
+            value={<span className="tnum">{r.beta != null ? num(r.beta, 2) : '—'}</span>}
+          />
+          <Stat
+            label="Portfolio drawdown"
+            value={<span className="tnum text-down">{r.portfolio_drawdown_pct != null ? pct(r.portfolio_drawdown_pct, 2, false) : '—'}</span>}
+            sub={`${r.data_points} obs`}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <Panel title="Holdings correlation" bodyClassName="p-0">
+            <CorrelationHeatmap data={r.correlation} />
+          </Panel>
+          <Panel title="Monthly returns (%)" bodyClassName="p-0">
+            <MonthlyReturnsHeatmap data={r.monthly_returns} />
+          </Panel>
         </div>
 
         <Panel title="Drawdown (underwater curve)" bodyClassName="p-4">
