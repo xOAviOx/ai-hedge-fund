@@ -32,6 +32,11 @@ desktop.ini
 # Database
 *.db
 *.sqlite
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite-shm
+*.sqlite-wal
 
 # Logs
 *.log
