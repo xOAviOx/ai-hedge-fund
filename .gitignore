@@ -1,0 +1,43 @@
+# Secrets & Environment
+.env
+*.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+venv/
+venv*/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Node.js / Next.js
+node_modules/
+.next/
+.turbo/
+out/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,2618 @@
+{
+  "meta": {
+    "purpose": "Phase-3 persona parity oracle. Generated from the current deterministic persona agents in src/agents/*.py.",
+    "generated_from": "src.config.agents.PERSONA_CONFIG",
+    "persona_count": 12,
+    "tickers": [
+      "MOAT",
+      "VALUE",
+      "DISTRESS",
+      "MEGA"
+    ],
+    "signal_shape": [
+      "agent_id",
+      "ticker",
+      "signal",
+      "confidence",
+      "reasoning"
+    ]
+  },
+  "fixtures": {
+    "tickers": [
+      "MOAT",
+      "VALUE",
+      "DISTRESS",
+      "MEGA"
+    ],
+    "financials": {
+      "MOAT": [
+        {
+          "ticker": "MOAT",
+          "period": "annual",
+          "fiscal_period": "FY2024",
+          "filing_date": null,
+          "revenue": 55000000000.0,
+          "net_income": 11000000000.0,
+          "earnings_per_share": 6.0,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 50000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 9000000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.2,
+          "return_on_equity": 0.22,
+          "debt_to_equity": 0.3,
+          "current_ratio": 1.8
+        },
+        {
+          "ticker": "MOAT",
+          "period": "annual",
+          "fiscal_period": "FY2023",
+          "filing_date": null,
+          "revenue": 48000000000.0,
+          "net_income": 9000000000.0,
+          "earnings_per_share": 5.0,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 45000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 8000000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.187,
+          "return_on_equity": 0.2,
+          "debt_to_equity": 0.32,
+          "current_ratio": 1.7
+        }
+      ],
+      "VALUE": [
+        {
+          "ticker": "VALUE",
+          "period": "annual",
+          "fiscal_period": "FY2024",
+          "filing_date": null,
+          "revenue": 30000000000.0,
+          "net_income": 4000000000.0,
+          "earnings_per_share": 8.0,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 25000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 3000000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.133,
+          "return_on_equity": 0.12,
+          "debt_to_equity": 0.2,
+          "current_ratio": 2.5
+        },
+        {
+          "ticker": "VALUE",
+          "period": "annual",
+          "fiscal_period": "FY2023",
+          "filing_date": null,
+          "revenue": 29000000000.0,
+          "net_income": 3800000000.0,
+          "earnings_per_share": 7.6,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 24000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 2800000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.131,
+          "return_on_equity": 0.11,
+          "debt_to_equity": 0.22,
+          "current_ratio": 2.4
+        }
+      ],
+      "DISTRESS": [
+        {
+          "ticker": "DISTRESS",
+          "period": "annual",
+          "fiscal_period": "FY2024",
+          "filing_date": null,
+          "revenue": 18000000000.0,
+          "net_income": -1000000000.0,
+          "earnings_per_share": -0.5,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 8000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": -500000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": -0.055,
+          "return_on_equity": -0.05,
+          "debt_to_equity": 3.0,
+          "current_ratio": 0.8
+        },
+        {
+          "ticker": "DISTRESS",
+          "period": "annual",
+          "fiscal_period": "FY2023",
+          "filing_date": null,
+          "revenue": 22000000000.0,
+          "net_income": 500000000.0,
+          "earnings_per_share": 0.3,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 9000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 200000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.023,
+          "return_on_equity": 0.03,
+          "debt_to_equity": 2.6,
+          "current_ratio": 1.0
+        }
+      ],
+      "MEGA": [
+        {
+          "ticker": "MEGA",
+          "period": "annual",
+          "fiscal_period": "FY2024",
+          "filing_date": null,
+          "revenue": 380000000000.0,
+          "net_income": 90000000000.0,
+          "earnings_per_share": 6.5,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 200000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 80000000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.237,
+          "return_on_equity": 0.3,
+          "debt_to_equity": 0.5,
+          "current_ratio": 1.2
+        },
+        {
+          "ticker": "MEGA",
+          "period": "annual",
+          "fiscal_period": "FY2023",
+          "filing_date": null,
+          "revenue": 350000000000.0,
+          "net_income": 80000000000.0,
+          "earnings_per_share": 5.8,
+          "total_assets": null,
+          "total_liabilities": null,
+          "shareholders_equity": 190000000000.0,
+          "operating_cash_flow": null,
+          "free_cash_flow": 72000000000.0,
+          "gross_profit_margin": null,
+          "net_profit_margin": 0.229,
+          "return_on_equity": 0.28,
+          "debt_to_equity": 0.55,
+          "current_ratio": 1.1
+        }
+      ]
+    },
+    "details": {
+      "MOAT": {
+        "ticker": "MOAT",
+        "name": "Moat Compounders Inc",
+        "market_cap": 220000000000.0,
+        "description": "Global cloud and AI platform with robotics automation.",
+        "sic_code": null,
+        "sic_description": null,
+        "homepage_url": null,
+        "total_employees": 60000,
+        "list_date": null,
+        "share_class_shares_outstanding": 15000000000.0,
+        "weighted_shares_outstanding": 15000000000.0
+      },
+      "VALUE": {
+        "ticker": "VALUE",
+        "name": "Value Industrials Corp",
+        "market_cap": 40000000000.0,
+        "description": "Diversified industrial manufacturing conglomerate.",
+        "sic_code": null,
+        "sic_description": null,
+        "homepage_url": null,
+        "total_employees": 20000,
+        "list_date": null,
+        "share_class_shares_outstanding": 5000000000.0,
+        "weighted_shares_outstanding": 5000000000.0
+      },
+      "DISTRESS": {
+        "ticker": "DISTRESS",
+        "name": "Distress Retail Co",
+        "market_cap": 6000000000.0,
+        "description": "Legacy brick-and-mortar retail operations.",
+        "sic_code": null,
+        "sic_description": null,
+        "homepage_url": null,
+        "total_employees": 8000,
+        "list_date": null,
+        "share_class_shares_outstanding": 4000000000.0,
+        "weighted_shares_outstanding": 4000000000.0
+      },
+      "MEGA": {
+        "ticker": "MEGA",
+        "name": "Mega Cap Technologies",
+        "market_cap": 2500000000000.0,
+        "description": "Consumer electronics, cloud services and AI at global scale.",
+        "sic_code": null,
+        "sic_description": null,
+        "homepage_url": null,
+        "total_employees": 150000,
+        "list_date": null,
+        "share_class_shares_outstanding": 15000000000.0,
+        "weighted_shares_outstanding": 15000000000.0
+      }
+    },
+    "prices": {
+      "MOAT": [
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-10T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-11T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 100.4976,
+          "high": 102.0096,
+          "low": 99.5904,
+          "close": 100.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-12T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 101.2952,
+          "high": 102.8192,
+          "low": 100.3808,
+          "close": 101.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-13T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.0928,
+          "high": 103.6288,
+          "low": 101.1712,
+          "close": 102.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-14T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.8904,
+          "high": 104.4384,
+          "low": 101.9616,
+          "close": 103.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-15T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 103.688,
+          "high": 105.248,
+          "low": 102.752,
+          "close": 104.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-16T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.4856,
+          "high": 106.0576,
+          "low": 103.5424,
+          "close": 104.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-17T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.2832,
+          "high": 106.8672,
+          "low": 104.3328,
+          "close": 105.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-18T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.0808,
+          "high": 107.6768,
+          "low": 105.1232,
+          "close": 106.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-19T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.8784,
+          "high": 108.4864,
+          "low": 105.9136,
+          "close": 107.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-20T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.676,
+          "high": 109.296,
+          "low": 106.704,
+          "close": 108.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-21T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 108.2007,
+          "high": 109.8286,
+          "low": 107.224,
+          "close": 108.5263,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-22T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 108.7255,
+          "high": 110.3613,
+          "low": 107.744,
+          "close": 109.0526,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-23T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 109.2502,
+          "high": 110.8939,
+          "low": 108.264,
+          "close": 109.5789,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-24T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 109.7749,
+          "high": 111.4265,
+          "low": 108.784,
+          "close": 110.1053,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-25T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 110.2997,
+          "high": 111.9592,
+          "low": 109.304,
+          "close": 110.6316,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-26T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 110.8244,
+          "high": 112.4918,
+          "low": 109.824,
+          "close": 111.1579,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-27T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 111.3492,
+          "high": 113.0244,
+          "low": 110.344,
+          "close": 111.6842,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-28T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 111.8739,
+          "high": 113.5571,
+          "low": 110.864,
+          "close": 112.2105,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-29T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 112.3986,
+          "high": 114.0897,
+          "low": 111.384,
+          "close": 112.7368,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-30T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 112.9234,
+          "high": 114.6223,
+          "low": 111.904,
+          "close": 113.2632,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-31T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 113.4481,
+          "high": 115.1549,
+          "low": 112.424,
+          "close": 113.7895,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 113.9728,
+          "high": 115.6876,
+          "low": 112.944,
+          "close": 114.3158,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 114.4976,
+          "high": 116.2202,
+          "low": 113.464,
+          "close": 114.8421,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 115.0223,
+          "high": 116.7528,
+          "low": 113.984,
+          "close": 115.3684,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 115.5471,
+          "high": 117.2855,
+          "low": 114.504,
+          "close": 115.8947,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 116.0718,
+          "high": 117.8181,
+          "low": 115.024,
+          "close": 116.4211,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 116.5965,
+          "high": 118.3507,
+          "low": 115.544,
+          "close": 116.9474,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 117.1213,
+          "high": 118.8834,
+          "low": 116.064,
+          "close": 117.4737,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 117.646,
+          "high": 119.416,
+          "low": 116.584,
+          "close": 118.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        }
+      ],
+      "VALUE": [
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-10T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-11T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.5006,
+          "high": 100.9976,
+          "low": 98.6024,
+          "close": 99.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-12T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.3012,
+          "high": 100.7952,
+          "low": 98.4048,
+          "close": 99.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-13T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.1018,
+          "high": 100.5928,
+          "low": 98.2072,
+          "close": 99.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-14T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.9024,
+          "high": 100.3904,
+          "low": 98.0096,
+          "close": 99.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-15T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.703,
+          "high": 100.188,
+          "low": 97.812,
+          "close": 99.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-16T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.5036,
+          "high": 99.9856,
+          "low": 97.6144,
+          "close": 98.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-17T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.3042,
+          "high": 99.7832,
+          "low": 97.4168,
+          "close": 98.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-18T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.1048,
+          "high": 99.5808,
+          "low": 97.2192,
+          "close": 98.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-19T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.9054,
+          "high": 99.3784,
+          "low": 97.0216,
+          "close": 98.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-20T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.706,
+          "high": 99.176,
+          "low": 96.824,
+          "close": 98.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-21T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.5486,
+          "high": 99.0162,
+          "low": 96.668,
+          "close": 97.8421,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-22T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.3912,
+          "high": 98.8564,
+          "low": 96.512,
+          "close": 97.6842,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-23T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.2337,
+          "high": 98.6966,
+          "low": 96.356,
+          "close": 97.5263,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-24T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.0763,
+          "high": 98.5368,
+          "low": 96.2,
+          "close": 97.3684,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-25T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.9189,
+          "high": 98.3771,
+          "low": 96.044,
+          "close": 97.2105,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-26T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.7615,
+          "high": 98.2173,
+          "low": 95.888,
+          "close": 97.0526,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-27T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.6041,
+          "high": 98.0575,
+          "low": 95.732,
+          "close": 96.8947,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-28T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.4466,
+          "high": 97.8977,
+          "low": 95.576,
+          "close": 96.7368,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-29T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.2892,
+          "high": 97.7379,
+          "low": 95.42,
+          "close": 96.5789,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-30T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.1318,
+          "high": 97.5781,
+          "low": 95.264,
+          "close": 96.4211,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-31T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.9744,
+          "high": 97.4183,
+          "low": 95.108,
+          "close": 96.2632,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.8169,
+          "high": 97.2585,
+          "low": 94.952,
+          "close": 96.1053,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.6595,
+          "high": 97.0987,
+          "low": 94.796,
+          "close": 95.9474,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.5021,
+          "high": 96.9389,
+          "low": 94.64,
+          "close": 95.7895,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.3447,
+          "high": 96.7792,
+          "low": 94.484,
+          "close": 95.6316,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.1873,
+          "high": 96.6194,
+          "low": 94.328,
+          "close": 95.4737,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.0298,
+          "high": 96.4596,
+          "low": 94.172,
+          "close": 95.3158,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 94.8724,
+          "high": 96.2998,
+          "low": 94.016,
+          "close": 95.1579,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 94.715,
+          "high": 96.14,
+          "low": 93.86,
+          "close": 95.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        }
+      ],
+      "DISTRESS": [
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-10T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-11T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.2015,
+          "high": 100.694,
+          "low": 98.306,
+          "close": 99.5,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-12T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.703,
+          "high": 100.188,
+          "low": 97.812,
+          "close": 99.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-13T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 98.2045,
+          "high": 99.682,
+          "low": 97.318,
+          "close": 98.5,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-14T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.706,
+          "high": 99.176,
+          "low": 96.824,
+          "close": 98.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-15T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 97.2075,
+          "high": 98.67,
+          "low": 96.33,
+          "close": 97.5,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-16T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.709,
+          "high": 98.164,
+          "low": 95.836,
+          "close": 97.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-17T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 96.2105,
+          "high": 97.658,
+          "low": 95.342,
+          "close": 96.5,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-18T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.712,
+          "high": 97.152,
+          "low": 94.848,
+          "close": 96.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-19T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 95.2135,
+          "high": 96.646,
+          "low": 94.354,
+          "close": 95.5,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-20T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 94.715,
+          "high": 96.14,
+          "low": 93.86,
+          "close": 95.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-21T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 93.8229,
+          "high": 95.2345,
+          "low": 92.976,
+          "close": 94.1053,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-22T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 92.9309,
+          "high": 94.3291,
+          "low": 92.092,
+          "close": 93.2105,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-23T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 92.0388,
+          "high": 93.4236,
+          "low": 91.208,
+          "close": 92.3158,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-24T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 91.1468,
+          "high": 92.5181,
+          "low": 90.324,
+          "close": 91.4211,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-25T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 90.2547,
+          "high": 91.6126,
+          "low": 89.44,
+          "close": 90.5263,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-26T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 89.3627,
+          "high": 90.7072,
+          "low": 88.556,
+          "close": 89.6316,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-27T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 88.4706,
+          "high": 89.8017,
+          "low": 87.672,
+          "close": 88.7368,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-28T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 87.5786,
+          "high": 88.8962,
+          "low": 86.788,
+          "close": 87.8421,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-29T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 86.6865,
+          "high": 87.9907,
+          "low": 85.904,
+          "close": 86.9474,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-30T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 85.7945,
+          "high": 87.0853,
+          "low": 85.02,
+          "close": 86.0526,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-31T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 84.9024,
+          "high": 86.1798,
+          "low": 84.136,
+          "close": 85.1579,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 84.0104,
+          "high": 85.2743,
+          "low": 83.252,
+          "close": 84.2632,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 83.1183,
+          "high": 84.3688,
+          "low": 82.368,
+          "close": 83.3684,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 82.2263,
+          "high": 83.4634,
+          "low": 81.484,
+          "close": 82.4737,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 81.3342,
+          "high": 82.5579,
+          "low": 80.6,
+          "close": 81.5789,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 80.4422,
+          "high": 81.6524,
+          "low": 79.716,
+          "close": 80.6842,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 79.5501,
+          "high": 80.7469,
+          "low": 78.832,
+          "close": 79.7895,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 78.6581,
+          "high": 79.8415,
+          "low": 77.948,
+          "close": 78.8947,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 77.766,
+          "high": 78.936,
+          "low": 77.064,
+          "close": 78.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        }
+      ],
+      "MEGA": [
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-10T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-11T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 100.697,
+          "high": 102.212,
+          "low": 99.788,
+          "close": 101.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-12T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 101.694,
+          "high": 103.224,
+          "low": 100.776,
+          "close": 102.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-13T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.691,
+          "high": 104.236,
+          "low": 101.764,
+          "close": 103.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-14T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 103.688,
+          "high": 105.248,
+          "low": 102.752,
+          "close": 104.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-15T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.685,
+          "high": 106.26,
+          "low": 103.74,
+          "close": 105.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-16T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.682,
+          "high": 107.272,
+          "low": 104.728,
+          "close": 106.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-17T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.679,
+          "high": 108.284,
+          "low": 105.716,
+          "close": 107.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-18T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.676,
+          "high": 109.296,
+          "low": 106.704,
+          "close": 108.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-19T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 108.673,
+          "high": 110.308,
+          "low": 107.692,
+          "close": 109.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-20T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 109.67,
+          "high": 111.32,
+          "low": 108.68,
+          "close": 110.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-21T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 110.4571,
+          "high": 112.1189,
+          "low": 109.46,
+          "close": 110.7895,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-22T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 111.2442,
+          "high": 112.9179,
+          "low": 110.24,
+          "close": 111.5789,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-23T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 112.0313,
+          "high": 113.7168,
+          "low": 111.02,
+          "close": 112.3684,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-24T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 112.8184,
+          "high": 114.5158,
+          "low": 111.8,
+          "close": 113.1579,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-25T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 113.6055,
+          "high": 115.3147,
+          "low": 112.58,
+          "close": 113.9474,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-26T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 114.3926,
+          "high": 116.1137,
+          "low": 113.36,
+          "close": 114.7368,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-27T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 115.1797,
+          "high": 116.9126,
+          "low": 114.14,
+          "close": 115.5263,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-28T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 115.9668,
+          "high": 117.7116,
+          "low": 114.92,
+          "close": 116.3158,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-29T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 116.7539,
+          "high": 118.5105,
+          "low": 115.7,
+          "close": 117.1053,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-30T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 117.5411,
+          "high": 119.3095,
+          "low": 116.48,
+          "close": 117.8947,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-31T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 118.3282,
+          "high": 120.1084,
+          "low": 117.26,
+          "close": 118.6842,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 119.1153,
+          "high": 120.9074,
+          "low": 118.04,
+          "close": 119.4737,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 119.9024,
+          "high": 121.7063,
+          "low": 118.82,
+          "close": 120.2632,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 120.6895,
+          "high": 122.5053,
+          "low": 119.6,
+          "close": 121.0526,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 121.4766,
+          "high": 123.3042,
+          "low": 120.38,
+          "close": 121.8421,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 122.2637,
+          "high": 124.1032,
+          "low": 121.16,
+          "close": 122.6316,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 123.0508,
+          "high": 124.9021,
+          "low": 121.94,
+          "close": 123.4211,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 123.8379,
+          "high": 125.7011,
+          "low": 122.72,
+          "close": 124.2105,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 124.625,
+          "high": 126.5,
+          "low": 123.5,
+          "close": 125.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        }
+      ],
+      "SPY": [
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-10T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 99.7,
+          "high": 101.2,
+          "low": 98.8,
+          "close": 100.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-11T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 100.0988,
+          "high": 101.6048,
+          "low": 99.1952,
+          "close": 100.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-12T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 100.4976,
+          "high": 102.0096,
+          "low": 99.5904,
+          "close": 100.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-13T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 100.8964,
+          "high": 102.4144,
+          "low": 99.9856,
+          "close": 101.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-14T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 101.2952,
+          "high": 102.8192,
+          "low": 100.3808,
+          "close": 101.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-15T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 101.694,
+          "high": 103.224,
+          "low": 100.776,
+          "close": 102.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-16T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.0928,
+          "high": 103.6288,
+          "low": 101.1712,
+          "close": 102.4,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-17T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.4916,
+          "high": 104.0336,
+          "low": 101.5664,
+          "close": 102.8,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-18T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 102.8904,
+          "high": 104.4384,
+          "low": 101.9616,
+          "close": 103.2,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-19T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 103.2892,
+          "high": 104.8432,
+          "low": 102.3568,
+          "close": 103.6,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-20T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 103.688,
+          "high": 105.248,
+          "low": 102.752,
+          "close": 104.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-21T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 103.8979,
+          "high": 105.4611,
+          "low": 102.96,
+          "close": 104.2105,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-22T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.1078,
+          "high": 105.6741,
+          "low": 103.168,
+          "close": 104.4211,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-23T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.3177,
+          "high": 105.8872,
+          "low": 103.376,
+          "close": 104.6316,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-24T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.5276,
+          "high": 106.1002,
+          "low": 103.584,
+          "close": 104.8421,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-25T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.7375,
+          "high": 106.3133,
+          "low": 103.792,
+          "close": 105.0526,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-26T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 104.9474,
+          "high": 106.5263,
+          "low": 104.0,
+          "close": 105.2632,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-27T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.1573,
+          "high": 106.7394,
+          "low": 104.208,
+          "close": 105.4737,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-28T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.3672,
+          "high": 106.9524,
+          "low": 104.416,
+          "close": 105.6842,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-29T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.5771,
+          "high": 107.1655,
+          "low": 104.624,
+          "close": 105.8947,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-30T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.7869,
+          "high": 107.3785,
+          "low": 104.832,
+          "close": 106.1053,
+          "volume": 1000000.0,
+          "timestamp": "2025-01-31T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 105.9968,
+          "high": 107.5916,
+          "low": 105.04,
+          "close": 106.3158,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-01T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.2067,
+          "high": 107.8046,
+          "low": 105.248,
+          "close": 106.5263,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-02T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.4166,
+          "high": 108.0177,
+          "low": 105.456,
+          "close": 106.7368,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-03T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.6265,
+          "high": 108.2307,
+          "low": 105.664,
+          "close": 106.9474,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-04T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 106.8364,
+          "high": 108.4438,
+          "low": 105.872,
+          "close": 107.1579,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-05T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.0463,
+          "high": 108.6568,
+          "low": 106.08,
+          "close": 107.3684,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-06T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.2562,
+          "high": 108.8699,
+          "low": 106.288,
+          "close": 107.5789,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-07T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.4661,
+          "high": 109.0829,
+          "low": 106.496,
+          "close": 107.7895,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-08T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        },
+        {
+          "open": 107.676,
+          "high": 109.296,
+          "low": 106.704,
+          "close": 108.0,
+          "volume": 1000000.0,
+          "timestamp": "2025-02-09T00:00:00Z",
+          "vwap": null,
+          "transactions": null
+        }
+      ]
+    }
+  },
+  "golden": {
+    "ackman": [
+      {
+        "agent_id": "ackman_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Strong FCF margin (16%); Large-cap \u2014 suitable for activist strategy"
+      },
+      {
+        "agent_id": "ackman_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Large-cap \u2014 suitable for activist strategy"
+      },
+      {
+        "agent_id": "ackman_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Excessive leverage \u2014 restructuring risk; Large-cap \u2014 suitable for activist strategy"
+      },
+      {
+        "agent_id": "ackman_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Strong FCF margin (21%); Large-cap \u2014 suitable for activist strategy"
+      }
+    ],
+    "buffett": [
+      {
+        "agent_id": "buffett_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 90.0,
+        "reasoning": "Durable ROE (22.0%); Conservative balance sheet; Positive FCF \u2014 cash-generative"
+      },
+      {
+        "agent_id": "buffett_analyst",
+        "ticker": "VALUE",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Conservative balance sheet; Positive FCF \u2014 cash-generative; Margin of safety (P/E 11.9)"
+      },
+      {
+        "agent_id": "buffett_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 79.0,
+        "reasoning": "Mediocre ROE; Excessive leverage"
+      },
+      {
+        "agent_id": "buffett_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 87.0,
+        "reasoning": "Durable ROE (30.0%); Positive FCF \u2014 cash-generative; Margin of safety (P/E 19.2)"
+      }
+    ],
+    "burry": [
+      {
+        "agent_id": "burry_analyst",
+        "ticker": "MOAT",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Cash generative"
+      },
+      {
+        "agent_id": "burry_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Cash generative"
+      },
+      {
+        "agent_id": "burry_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "Oversold (-17.9% drop) \u2014 contrarian opportunity; Dangerous leverage"
+      },
+      {
+        "agent_id": "burry_analyst",
+        "ticker": "MEGA",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Cash generative"
+      }
+    ],
+    "damodaran": [
+      {
+        "agent_id": "damodaran_analyst",
+        "ticker": "MOAT",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Efficient capital structure"
+      },
+      {
+        "agent_id": "damodaran_analyst",
+        "ticker": "VALUE",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "High FCF yield (7.5%) \u2014 undervalued; Efficient capital structure"
+      },
+      {
+        "agent_id": "damodaran_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 79.0,
+        "reasoning": "Low FCF yield (-8.3%); Unprofitable"
+      },
+      {
+        "agent_id": "damodaran_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "Efficient capital structure; Strong margin (24%)"
+      }
+    ],
+    "druckenmiller": [
+      {
+        "agent_id": "druckenmiller_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Strong momentum (+18.0%) + bull market; Outperforming SPY by 10.0pp"
+      },
+      {
+        "agent_id": "druckenmiller_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Underperforming SPY by 13.0pp"
+      },
+      {
+        "agent_id": "druckenmiller_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 79.0,
+        "reasoning": "Negative momentum (-22.0%); Underperforming SPY by 30.0pp"
+      },
+      {
+        "agent_id": "druckenmiller_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Strong momentum (+25.0%) + bull market; Outperforming SPY by 17.0pp"
+      }
+    ],
+    "fisher": [
+      {
+        "agent_id": "fisher_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "Healthy margins (20%); Established team"
+      },
+      {
+        "agent_id": "fisher_analyst",
+        "ticker": "VALUE",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "Healthy margins (13%); Established team"
+      },
+      {
+        "agent_id": "fisher_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "Revenue declining; Established team"
+      },
+      {
+        "agent_id": "fisher_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "Healthy margins (24%); Established team"
+      }
+    ],
+    "graham": [
+      {
+        "agent_id": "graham_analyst",
+        "ticker": "MOAT",
+        "signal": "bearish",
+        "confidence": 71.0,
+        "reasoning": "Above Graham number"
+      },
+      {
+        "agent_id": "graham_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Above Graham number; Strong current ratio (2.5); Low P/E (11.9)"
+      },
+      {
+        "agent_id": "graham_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Weak current ratio"
+      },
+      {
+        "agent_id": "graham_analyst",
+        "ticker": "MEGA",
+        "signal": "bearish",
+        "confidence": 71.0,
+        "reasoning": "Above Graham number"
+      }
+    ],
+    "jhunjhunwala": [
+      {
+        "agent_id": "jhunjhunwala_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 87.0,
+        "reasoning": "Earnings surge (22%); High quality ROE (22%); Positive momentum (+9%)"
+      },
+      {
+        "agent_id": "jhunjhunwala_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "jhunjhunwala_analyst analysis complete."
+      },
+      {
+        "agent_id": "jhunjhunwala_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 71.0,
+        "reasoning": "Earnings declining; Weak price action"
+      },
+      {
+        "agent_id": "jhunjhunwala_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "High quality ROE (30%); Positive momentum (+14%)"
+      }
+    ],
+    "lynch": [
+      {
+        "agent_id": "lynch_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 87.0,
+        "reasoning": "PEG < 1 (0.98) \u2014 classic Lynch buy; Revenue growing 15%"
+      },
+      {
+        "agent_id": "lynch_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "lynch_analyst analysis complete."
+      },
+      {
+        "agent_id": "lynch_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "lynch_analyst analysis complete."
+      },
+      {
+        "agent_id": "lynch_analyst",
+        "ticker": "MEGA",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Reasonable PEG (1.59)"
+      }
+    ],
+    "munger": [
+      {
+        "agent_id": "munger_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 87.0,
+        "reasoning": "High-quality ROE (22%); Wide margins \u2014 pricing power; Low leverage"
+      },
+      {
+        "agent_id": "munger_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Low leverage"
+      },
+      {
+        "agent_id": "munger_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 71.0,
+        "reasoning": "Thin margins; Too much debt for Munger"
+      },
+      {
+        "agent_id": "munger_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "High-quality ROE (30%); Wide margins \u2014 pricing power"
+      }
+    ],
+    "pabrai": [
+      {
+        "agent_id": "pabrai_analyst",
+        "ticker": "MOAT",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Strong cash generation"
+      },
+      {
+        "agent_id": "pabrai_analyst",
+        "ticker": "VALUE",
+        "signal": "bullish",
+        "confidence": 90.0,
+        "reasoning": "Deep value PE (11.9) \u2014 high asymmetry; Strong cash generation; Minimal debt \u2014 dhandho approved"
+      },
+      {
+        "agent_id": "pabrai_analyst",
+        "ticker": "DISTRESS",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "pabrai_analyst analysis complete."
+      },
+      {
+        "agent_id": "pabrai_analyst",
+        "ticker": "MEGA",
+        "signal": "neutral",
+        "confidence": 55.0,
+        "reasoning": "Strong cash generation"
+      }
+    ],
+    "wood": [
+      {
+        "agent_id": "wood_analyst",
+        "ticker": "MOAT",
+        "signal": "bullish",
+        "confidence": 79.0,
+        "reasoning": "Solid revenue growth (15%); Disruptive innovation exposure"
+      },
+      {
+        "agent_id": "wood_analyst",
+        "ticker": "VALUE",
+        "signal": "neutral",
+        "confidence": 50.0,
+        "reasoning": "wood_analyst analysis complete."
+      },
+      {
+        "agent_id": "wood_analyst",
+        "ticker": "DISTRESS",
+        "signal": "bearish",
+        "confidence": 71.0,
+        "reasoning": "Revenue contraction \u2014 avoid"
+      },
+      {
+        "agent_id": "wood_analyst",
+        "ticker": "MEGA",
+        "signal": "bullish",
+        "confidence": 71.0,
+        "reasoning": "Disruptive innovation exposure"
+      }
+    ]
+  }
+}

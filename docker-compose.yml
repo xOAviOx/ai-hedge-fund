@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # Optional — pass through from the host env if set. The pipeline runs
+      # without an LLM key (memo is skipped); see TRANSFORM.md §4.4.
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      DATABASE_URL: ${DATABASE_URL:-}
+    volumes:
+      - portai-data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - backend
+
+volumes:
+  portai-data:
