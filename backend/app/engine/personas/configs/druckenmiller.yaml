@@ -1,0 +1,18 @@
+name: druckenmiller
+agent_id: druckenmiller_analyst
+display_name: Stanley Druckenmiller
+philosophy: Macro-driven momentum with relative strength.
+rules:
+  - type: momentum_regime
+    window: 30
+    needs: {prices: true}
+    branches:
+      - {op: ">", value: 10, spy_bull: true, bull: 2, label: "Strong momentum ({v:+.1f}%) + bull market"}
+      - {op: ">", value: 5, bull: 1, label: "Positive momentum ({v:+.1f}%)"}
+      - {op: "<", value: -10, bear: 2, label: "Negative momentum ({v:.1f}%)"}
+  - type: relative_strength
+    window: 30
+    needs: {prices: true}
+    branches:
+      - {op: ">", value: 5, bull: 1, label: "Outperforming SPY by {alpha:.1f}pp"}
+      - {op: "<", value: -5, bear: 1, label: "Underperforming SPY by {abs_alpha:.1f}pp"}

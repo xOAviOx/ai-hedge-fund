@@ -1,0 +1,16 @@
+name: lynch
+agent_id: lynch_analyst
+display_name: Peter Lynch
+philosophy: Growth at a reasonable price (GARP).
+rules:
+  - type: peg
+    needs: {financials: 2, prices: true}
+    branches:
+      - {op: "<", value: 1, bull: 3, label: "PEG < 1 ({peg:.2f}) — classic Lynch buy"}
+      - {op: "<", value: 2, bull: 1, label: "Reasonable PEG ({peg:.2f})"}
+      - {op: ">", value: 3, bear: 1, label: "PEG too high ({peg:.2f})"}
+  - type: growth
+    field: revenue
+    needs: {financials: 2, prices: true}
+    branches:
+      - {op: ">", value: 10, bull: 1, label: "Revenue growing {v:.0f}%"}

@@ -1,0 +1,22 @@
+name: munger
+agent_id: munger_analyst
+display_name: Charlie Munger
+philosophy: Quality businesses at a fair price.
+rules:
+  - type: threshold
+    field: return_on_equity
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 0.20, bull: 2, label: "High-quality ROE ({pct:.0f}%)"}
+  - type: threshold
+    field: net_profit_margin
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 0.15, bull: 1, label: "Wide margins — pricing power"}
+      - {op: "<", value: 0.05, bear: 1, label: "Thin margins"}
+  - type: threshold
+    field: debt_to_equity
+    needs: {financials: 1}
+    branches:
+      - {op: "<", value: 0.5, bull: 1, label: "Low leverage"}
+      - {op: ">", value: 1.5, bear: 1, label: "Too much debt for Munger"}

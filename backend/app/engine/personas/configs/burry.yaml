@@ -1,0 +1,21 @@
+name: burry
+agent_id: burry_analyst
+display_name: Michael Burry
+philosophy: Contrarian deep value.
+rules:
+  - type: momentum
+    window: 20
+    needs: {prices: true}
+    branches:
+      - {op: "<", value: -15, bull: 2, label: "Oversold ({v:.1f}% drop) — contrarian opportunity"}
+      - {op: ">", value: 20, bear: 1, label: "Overextended rally ({v:.1f}%)"}
+  - type: threshold
+    field: free_cash_flow
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 0, bull: 1, label: "Cash generative"}
+  - type: threshold
+    field: debt_to_equity
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 2, bear: 2, label: "Dangerous leverage"}

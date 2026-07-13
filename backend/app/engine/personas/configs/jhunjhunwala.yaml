@@ -1,0 +1,22 @@
+name: jhunjhunwala
+agent_id: jhunjhunwala_analyst
+display_name: Rakesh Jhunjhunwala
+philosophy: India-style growth-plus-value hybrid.
+rules:
+  - type: growth
+    field: net_income
+    needs: {financials: 2, prices: true}
+    branches:
+      - {op: ">", value: 20, bull: 2, label: "Earnings surge ({v:.0f}%)"}
+      - {op: "<", value: -10, bear: 1, label: "Earnings declining"}
+  - type: threshold
+    field: return_on_equity
+    needs: {financials: 2, prices: true}
+    branches:
+      - {op: ">", value: 0.15, bull: 1, label: "High quality ROE ({pct:.0f}%)"}
+  - type: momentum
+    window: 20
+    needs: {financials: 2, prices: true}
+    branches:
+      - {op: ">", value: 8, bull: 1, label: "Positive momentum ({v:+.0f}%)"}
+      - {op: "<", value: -10, bear: 1, label: "Weak price action"}

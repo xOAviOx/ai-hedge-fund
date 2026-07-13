@@ -1,0 +1,22 @@
+name: fisher
+agent_id: fisher_analyst
+display_name: Philip Fisher
+philosophy: Scuttlebutt growth investing.
+rules:
+  - type: growth
+    field: revenue
+    needs: {financials: 2}
+    branches:
+      - {op: ">", value: 15, bull: 2, label: "Strong revenue growth ({v:.0f}%)"}
+      - {op: "<", value: 0, bear: 1, label: "Revenue declining"}
+  - type: threshold
+    field: net_profit_margin
+    needs: {financials: 2}
+    branches:
+      - {op: ">", value: 0.10, bull: 1, label: "Healthy margins ({pct:.0f}%)"}
+  - type: conditions
+    needs: {details: true}
+    bull: 1
+    label: "Established team"
+    conditions:
+      - {source: details, field: total_employees, op: ">", value: 1000}

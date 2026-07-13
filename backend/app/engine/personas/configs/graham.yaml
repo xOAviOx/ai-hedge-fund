@@ -1,0 +1,22 @@
+name: graham
+agent_id: graham_analyst
+display_name: Benjamin Graham
+philosophy: Deep value with a strict margin of safety.
+rules:
+  - type: graham_number
+    needs: {financials: 1, prices: true}
+    low_mult: 0.8
+    high_mult: 1.2
+    below: {bull: 3, label: "Below Graham number (${graham_num:.0f} vs ${price:.0f})"}
+    above: {bear: 2, label: "Above Graham number"}
+  - type: threshold
+    field: current_ratio
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: ">", value: 2, bull: 1, label: "Strong current ratio ({v:.1f})"}
+      - {op: "<", value: 1, bear: 1, label: "Weak current ratio"}
+  - type: pe
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: "<", value: 15, bull: 2, label: "Low P/E ({pe:.1f})"}
+      - {op: ">", value: 30, bear: 1}

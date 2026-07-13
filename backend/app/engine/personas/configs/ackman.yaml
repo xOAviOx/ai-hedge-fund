@@ -1,0 +1,31 @@
+name: ackman
+agent_id: ackman_analyst
+display_name: Bill Ackman
+philosophy: Activist value with hard catalysts.
+rules:
+  - type: ratio
+    num: free_cash_flow
+    num_positive: true
+    denom: revenue
+    scale: 100
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 15, bull: 2, label: "Strong FCF margin ({v:.0f}%)"}
+  - type: conditions
+    needs: {financials: 1}
+    bull: 1
+    label: "Margin expansion opportunity — activist catalyst"
+    conditions:
+      - {source: latest, field: net_profit_margin, op: "<", value: 0.10}
+      - {source: latest, field: return_on_equity, op: ">", value: 0.10}
+  - type: threshold
+    field: debt_to_equity
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 2.5, bear: 2, label: "Excessive leverage — restructuring risk"}
+  - type: conditions
+    needs: {details: true}
+    bull: 1
+    label: "Large-cap — suitable for activist strategy"
+    conditions:
+      - {source: details, field: market_cap, op: ">", value: 5000000000}

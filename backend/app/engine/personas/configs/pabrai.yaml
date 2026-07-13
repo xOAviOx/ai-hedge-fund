@@ -1,0 +1,20 @@
+name: pabrai
+agent_id: pabrai_analyst
+display_name: Mohnish Pabrai
+philosophy: Concentrated dhandho value with heads-I-win asymmetry.
+rules:
+  - type: pe
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: "<", value: 12, bull: 3, label: "Deep value PE ({pe:.1f}) — high asymmetry"}
+      - {op: ">", value: 35, bear: 1, label: "Expensive"}
+  - type: threshold
+    field: free_cash_flow
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: ">", value: 0, bull: 1, label: "Strong cash generation"}
+  - type: threshold
+    field: debt_to_equity
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: "<", value: 0.3, bull: 1, label: "Minimal debt — dhandho approved"}

@@ -1,0 +1,19 @@
+name: wood
+agent_id: wood_analyst
+display_name: Cathie Wood
+philosophy: Disruptive-innovation growth.
+rules:
+  - type: growth
+    field: revenue
+    needs: {financials: 2}
+    branches:
+      - {op: ">", value: 25, bull: 3, label: "Hyper-growth revenue ({v:.0f}%)"}
+      - {op: ">", value: 10, bull: 1, label: "Solid revenue growth ({v:.0f}%)"}
+      - {op: "<", value: 0, bear: 2, label: "Revenue contraction — avoid"}
+  - type: keyword_match
+    field: description
+    min_hits: 2
+    bull: 2
+    label: "Disruptive innovation exposure"
+    needs: {details: true}
+    keywords: ["ai", "autonomous", "genomics", "blockchain", "electric", "cloud", "robotics", "fintech"]

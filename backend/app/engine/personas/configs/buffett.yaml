@@ -1,0 +1,27 @@
+name: buffett
+agent_id: buffett_analyst
+display_name: Warren Buffett
+philosophy: Value investing with an economic-moat focus.
+rules:
+  - type: threshold
+    field: return_on_equity
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 0.15, bull: 2, label: "Durable ROE ({pct:.1f}%)"}
+      - {op: "<", value: 0.08, bear: 1, label: "Mediocre ROE"}
+  - type: threshold
+    field: debt_to_equity
+    needs: {financials: 1}
+    branches:
+      - {op: "<", value: 0.5, bull: 1, label: "Conservative balance sheet"}
+      - {op: ">", value: 2, bear: 2, label: "Excessive leverage"}
+  - type: threshold
+    field: free_cash_flow
+    needs: {financials: 1}
+    branches:
+      - {op: ">", value: 0, bull: 1, label: "Positive FCF — cash-generative"}
+  - type: pe
+    needs: {financials: 1, prices: true}
+    branches:
+      - {op: "<", value: 20, bull: 1, label: "Margin of safety (P/E {pe:.1f})"}
+      - {op: ">", value: 35, bear: 1, label: "Expensive entry (P/E {pe:.1f})"}
