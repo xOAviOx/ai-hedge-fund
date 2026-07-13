@@ -16,8 +16,12 @@ yfinance>=0.2.32
 pandas>=2.1.0
 httpx>=0.27.0
 
+# ── Fund loop (Phase 4) ─────────────────────────────────────────────────
+apscheduler>=3.10     # daily fund-run scheduler (AsyncIOScheduler)
+tzdata>=2024.1        # IANA tz for the 15:45 IST cron on Windows/minimal installs
+
 # ── Auth ────────────────────────────────────────────────────────────────
-supabase>=2.13.0
+supabase>=2.13.0      # frontend auth today; backend JWT verification in Phase 8
 
 # ── LLM (optional; the deterministic pipeline runs without any key) ──────
 # Default provider is Groq via the `groq` SDK — no LangChain required.
@@ -27,9 +31,5 @@ groq>=0.3.0
 google-generativeai>=0.3.0
 
 # NOTE: `langgraph` was removed in Phase 3 (see docs/adr/001-remove-langgraph.md).
-# NOTE: `apscheduler` (the fund scheduler) arrives in Phase 4.
-# NOTE: PyPDF2 / pytesseract / Pillow remain only for the legacy app/main.py
-#       document endpoints; they are pruned when main.py is rewritten in Phase 4.
-PyPDF2>=3.0.1
-pytesseract
-Pillow
+# NOTE: OCR deps (PyPDF2/pytesseract/Pillow) were dropped with the old monolith
+#       app/main.py document endpoints in Phase 4.
