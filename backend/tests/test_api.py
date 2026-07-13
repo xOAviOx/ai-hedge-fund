@@ -77,13 +77,44 @@ def test_fund_run_and_decision_room():
     asyncio.run(go())
 
 
-def test_research_and_backtest_stub():
+def test_research_and_backtest():
     async def go():
         async with _client() as c:
             r = await c.get("/api/v1/research/MOAT")
             assert r.status_code == 200 and r.json()["signals"]
-            r = await c.post("/api/v1/backtest/run")
-            assert r.status_code == 501  # honest: Phase 6
+
+            # Phase 6: a real point-in-time backtest, launched + polled to completion.
+            r = await c.post("/api/v1/backtest/run", json={
+                "universe": ["MOAT"], "start": "2025-01-05", "end": "2025-02-20", "step_days": 7,
+            })
+            assert r.status_code == 200
+            bt_id = r.json()["backtest_id"]
+
+            status = "running"
+            for _ in range(100):
+                await asyncio.sleep(0.05)
+                r = await c.get(f"/api/v1/backtest/{bt_id}")
+                assert r.status_code == 200
+                status = r.json()["status"]
+                if status != "running":
+                    break
+            body = r.json()
+            assert status == "done", body.get("error")
+            assert body["metrics"]["total_return_pct"] is not None
+            assert body["equity_curve"] and body["disclosure"]
+
+    asyncio.run(go())
+
+
+def test_risk_router_shape():
+    async def go():
+        async with _client() as c:
+            r = await c.get("/api/v1/risk")
+            assert r.status_code == 200
+            body = r.json()
+            # Phase 6 fields present (values may be null with no positions).
+            for key in ("var_95_pct", "beta", "correlation", "monthly_returns", "exposure"):
+                assert key in body
 
     asyncio.run(go())
 

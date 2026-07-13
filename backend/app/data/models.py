@@ -140,3 +140,21 @@ class SignalRow(Base):
     direction: Mapped[str] = mapped_column(String(8))  # bullish / bearish / neutral
     confidence: Mapped[float] = mapped_column(Float, default=0.0)
     factors: Mapped[str] = mapped_column(Text, default="")  # the reasoning string
+
+
+# ── Backtests (Phase 6) ─────────────────────────────────────────────
+
+class BacktestRow(Base):
+    """A backtest job + its persisted result (point-in-time run)."""
+
+    __tablename__ = "backtests"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)  # uuid4 hex
+    fund_id: Mapped[str] = mapped_column(String(64), index=True)
+    status: Mapped[str] = mapped_column(String(12), default="running")  # running / done / error
+    progress: Mapped[float] = mapped_column(Float, default=0.0)  # 0..1
+    params: Mapped[dict] = mapped_column(JSON, default=dict)
+    result: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow, index=True)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=_utcnow, onupdate=_utcnow)
