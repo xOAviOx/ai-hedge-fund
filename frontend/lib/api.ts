@@ -18,6 +18,9 @@ import type {
   RunNowResult,
   RunSummary,
   SearchResult,
+  BacktestRequest,
+  BacktestStartResponse,
+  BacktestStatus,
 } from './types';
 
 export const API_BASE =
@@ -102,4 +105,11 @@ export const api = {
 
   // risk
   risk: () => request<RiskReport>('/risk'),
+
+  // backtest
+  backtest: {
+    run: (body: BacktestRequest) =>
+      request<BacktestStartResponse>('/backtest/run', { method: 'POST', body: JSON.stringify(body) }),
+    get: (id: string) => request<BacktestStatus>(`/backtest/${encodeURIComponent(id)}`),
+  },
 };

@@ -242,3 +242,69 @@ export interface MetaStats {
   llm_cost: number;
   scheduler: { running: boolean; jobs: SchedulerJob[] };
 }
+
+// ── backtest ──────────────────────────────────────────────────────────
+export interface BacktestMetrics {
+  total_return_pct: number | null;
+  sharpe_ratio: number | null;
+  max_drawdown_pct: number | null;
+  total_trades: number;
+  win_rate_pct: number | null;
+  profit_factor: number | null;
+}
+
+export interface EquityPoint {
+  date: string;
+  value: number;
+  benchmark: number | null;
+}
+
+export interface BacktestTrade {
+  date: string;
+  ticker: string;
+  action: OrderAction;
+  quantity: number;
+  price: number;
+  trigger: string;
+}
+
+export interface BacktestParamsOut {
+  universe: string[];
+  start: string;
+  end: string;
+  initial_cash: number;
+  step_days: number;
+  personas: string[] | string;
+  benchmark: string;
+}
+
+export interface BacktestRequest {
+  universe?: string[];
+  start?: string;
+  end?: string;
+  initial_cash?: number;
+  step_days?: number;
+  personas?: string[];
+  benchmark?: string;
+}
+
+export interface BacktestStartResponse {
+  backtest_id: string;
+  status: string;
+  params: BacktestParamsOut;
+}
+
+export interface BacktestStatus {
+  backtest_id: string;
+  status: 'running' | 'done' | 'error';
+  progress: number;
+  params: BacktestParamsOut;
+  error: string | null;
+  created_at: string;
+  tickers?: string[];
+  metrics?: BacktestMetrics;
+  equity_curve?: EquityPoint[];
+  trades?: BacktestTrade[];
+  benchmark?: string;
+  disclosure?: string;
+}

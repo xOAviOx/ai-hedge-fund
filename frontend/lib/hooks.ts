@@ -7,7 +7,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { api } from './api';
-import type { FundConfigPatch } from './types';
+import type { BacktestRequest, FundConfigPatch } from './types';
 
 const QUOTE_REFETCH = 60_000; // matches quote cache TTL
 
@@ -127,5 +127,19 @@ export function useUpdateConfig() {
   return useMutation({
     mutationFn: (patch: FundConfigPatch) => api.updateConfig(patch),
     onSuccess: () => qc.invalidateQueries({ queryKey: qk.fund }),
+  });
+}
+
+export function useStartBacktest() {
+  return useMutation({ mutationFn: (body: BacktestRequest) => api.backtest.run(body) });
+}
+
+// Polls once per second while the job is running, then stops.
+export function useBacktest(id: string | null) {
+  return useQuery({
+    queryKey: ['backtest', id],
+    queryFn: () => api.backtest.get(id as string),
+    enabled: !!id,
+    refetchInterval: (query) => (query.state.data?.status === 'running' ? 1000 : false),
   });
 }
