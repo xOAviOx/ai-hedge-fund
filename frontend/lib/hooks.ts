@@ -75,6 +75,26 @@ export const useOhlcv = (symbol: string, interval = '1d', enabled = true) =>
 export const useNews = (symbol: string, enabled = true) =>
   useQuery({ queryKey: qk.news(symbol), queryFn: () => api.news(symbol), enabled: enabled && !!symbol });
 
+const isoDaysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString().slice(0, 10);
+
+// ~6 weeks of daily closes for per-position sparklines (small, long-cached).
+export const useSparkline = (symbol: string, enabled = true) =>
+  useQuery({
+    queryKey: ['spark', symbol],
+    queryFn: () => api.ohlcv(symbol, '1d', isoDaysAgo(42)),
+    enabled: enabled && !!symbol,
+    staleTime: 60 * 60_000,
+  });
+
+// Benchmark series aligned to the fund's NAV window (rebased in the chart).
+export const useBenchmark = (symbol: string, startIso: string | undefined, enabled = true) =>
+  useQuery({
+    queryKey: ['benchmark', symbol, startIso ?? ''],
+    queryFn: () => api.ohlcv(symbol, '1d', startIso ? startIso.slice(0, 10) : isoDaysAgo(365)),
+    enabled: enabled && !!symbol,
+    staleTime: 30 * 60_000,
+  });
+
 export const useDetails = (symbol: string, enabled = true) =>
   useQuery({ queryKey: qk.details(symbol), queryFn: () => api.details(symbol), enabled: enabled && !!symbol });
 
