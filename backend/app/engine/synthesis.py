@@ -60,6 +60,8 @@ def _complete_sync(prompt: str) -> str:
     if provider == "groq" and settings.groq_api_key:
         from groq import Groq
 
+        from app.engine import llm_usage
+
         client = Groq(api_key=settings.groq_api_key)
         resp = client.chat.completions.create(
             model=settings.llm_model,
@@ -67,6 +69,13 @@ def _complete_sync(prompt: str) -> str:
             temperature=0.3,
             max_tokens=600,
         )
+        usage = getattr(resp, "usage", None)
+        if usage is not None:
+            llm_usage.record(
+                settings.llm_model,
+                getattr(usage, "prompt_tokens", 0) or 0,
+                getattr(usage, "completion_tokens", 0) or 0,
+            )
         return (resp.choices[0].message.content or "").strip()
 
     # Fallback: LangChain factory (imported lazily inside get_chat_model).
