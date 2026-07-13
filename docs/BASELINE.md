@@ -186,3 +186,32 @@ Golden directions captured (for quick reference):
 - [x] Stratton test baseline run and recorded (38 pass / 119 fail / 11 errors).
 - [x] Golden persona fixtures recorded (`backend/tests/fixtures/persona_golden.json`).
 - [x] `docs/BASELINE.md` committed.
+
+---
+
+## 6. Phase-7 reconciliation — targets vs measured
+
+Measured after Phases 1–7 (see `docs/BENCHMARKS.md` for the efficiency numbers).
+
+| Metric | Baseline | Target | Now |
+|---|---:|---:|---:|
+| `backend/app/main.py` | 1463 lines | < 60 | **49** ✓ |
+| Frontend surfaces (pages) | 57 | 6 | **6** (+ auth) ✓ |
+| Persona logic | 402 lines of 12 duplicated `.py` | < 400 incl. configs | **267 lines of YAML** over a shared 441-line engine ✓ |
+| — adding a persona | ~34 lines of near-duplicate Python | — | **~22 lines of declarative YAML** |
+| Frontend deps | 26 prod + 9 dev | pruned §4.7 | **12 prod + 9 dev** ✓ |
+| Backend deps | code/`requirements.txt` inconsistent | langgraph removed | **17 lines, reconciled, no langgraph** ✓ |
+| LangGraph | present | removed | **removed (ADR-001)** ✓ |
+| Test suite | 38 pass / 119 fail / 11 errors (broken) | green | **52 passed** ✓ |
+| Provider calls per warm analysis | every request hit yfinance | < 3 | **0** ✓ |
+
+Notes:
+- The 12 persona **YAML configs total 267 lines** (~22 each). The shared
+  `engine.py`+`rules.py` (441 lines) is rule-primitive infrastructure, not
+  per-persona duplication — the copy-paste the baseline flagged is gone, and a
+  new persona is a small config, not another bull/bear loop (ADR-003).
+- Persona parity vs the pre-transformation deterministic agents is enforced by
+  `tests/test_persona_parity.py` against the golden fixtures (§4).
+- The old stratton suite (168 tests, mostly broken against the slim source) is
+  replaced by the current suite; "52 passed" is the whole backend under
+  `cd backend && python -m pytest`.
