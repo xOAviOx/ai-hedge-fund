@@ -212,7 +212,17 @@ async def bench(universe, *, live: bool, delay: float, write_memo: bool) -> dict
     }
 
 
+def _main_py_lines() -> int:
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "app", "main.py")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return sum(1 for _ in f)
+    except OSError:
+        return -1
+
+
 def _render_md(r: dict) -> str:
+    main_lines = _main_py_lines()
     lines = [
         "# PortAI — Benchmarks",
         "",
@@ -250,8 +260,8 @@ def _render_md(r: dict) -> str:
         "",
         "| Metric | Baseline | Now |",
         "|---|---:|---:|",
-        "| `backend/app/main.py` | 1463 lines | ~55 lines |",
-        "| Frontend pages | 57 | 6 (+ auth) |",
+        f"| `backend/app/main.py` | 1463 lines | {main_lines} lines |",
+        "| Frontend pages | 57 | 6 surfaces (+ auth) |",
         "| LangGraph dependency | present | removed (ADR-001) |",
         "| Provider calls per warm analysis | every request hit yfinance | "
         f"{r['provider_calls_warm']} |",
