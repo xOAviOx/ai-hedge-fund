@@ -1,1 +1,0 @@
-"""Stratton Oakmont backtesting module."""
