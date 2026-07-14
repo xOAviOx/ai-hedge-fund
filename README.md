@@ -161,7 +161,7 @@ docs/         BASELINE.md · BENCHMARKS.md · LATER.md      backend/docs/adr/
 ```
 
 Deferred ideas live in [`docs/LATER.md`](docs/LATER.md) — the product stays six
-surfaces. The transformation brief is [`TRANSFORM.md`](TRANSFORM.md).
+surfaces.
 
 ## License
 

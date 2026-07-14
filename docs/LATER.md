@@ -1,7 +1,7 @@
 # LATER — deferred ideas
 
-Per TRANSFORM.md global rule 2 ("no new feature pages — feature ideas go here,
-not the code"), this is the parking lot. Nothing here ships without a deliberate
+Per the project's "no new feature pages" rule (feature ideas go here, not the
+code), this is the parking lot. Nothing here ships without a deliberate
 decision; the six surfaces stay six.
 
 ## Deferred during the transformation

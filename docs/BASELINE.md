@@ -1,6 +1,6 @@
 # PortAI v2 — Phase 0 Baseline
 
-Recorded at the start of the Stratton Fund transformation (see `TRANSFORM.md`).
+Recorded at the start of the Stratton Fund transformation.
 These are the measured "before" numbers that Phase 7 (`BENCHMARKS.md`) must show
 deltas against, plus the honest state of the existing test suite.
 
@@ -111,7 +111,7 @@ Missing at baseline: `pip`, `pytest`, `pandas`, `numpy`, `yfinance`, `sqlalchemy
 
 ---
 
-## 3. Audit confirmation (matches `TRANSFORM.md` §2)
+## 3. Audit confirmation
 
 Verified present, as the brief describes:
 
@@ -181,7 +181,6 @@ Golden directions captured (for quick reference):
 
 ## 5. Phase 0 acceptance
 
-- [x] `TRANSFORM.md` saved at repo root.
 - [x] Audit confirmed against reality (deviations noted in §2).
 - [x] Stratton test baseline run and recorded (38 pass / 119 fail / 11 errors).
 - [x] Golden persona fixtures recorded (`backend/tests/fixtures/persona_golden.json`).
