@@ -31,7 +31,31 @@ The entire product is exactly six pages, each fully wired to real data.
 | 5 | **Risk Desk** | `/risk` | VaR, volatility, beta, Sharpe, drawdown, a holdings correlation heatmap, and a monthly-returns heatmap — from cached OHLCV. |
 | 6 | **Settings** | `/settings` | Fund config: universe, position cap, schedule, base currency, and the 12 persona toggles. |
 
-<!-- Screenshots: add under docs/img/ and link here (fund-console.png, decision-room.png, …). -->
+### Screenshots
+
+**Fund Console** — NAV vs benchmark, positions with live P&L, cash, and the recent-orders feed.
+
+![Fund Console](docs/img/01-fund-console.png)
+
+**Decision Room** — the audit trail for a single run: the AI-written memo, then the per-ticker agent debate (all 12 personas + 6 analyst models with confidence bars and factors) and the PM's verdict.
+
+![Decision Room — run detail](docs/img/03-decision-detail.png)
+
+**Research Terminal** — an on-demand deep-dive on any ticker: candlestick chart, fundamentals, recent news, and the full agent analysis.
+
+![Research Terminal](docs/img/04-research.png)
+
+**Backtest Lab** — the agent pipeline replayed weekly over a historical window. This 1-year run (NRL.NS · RELIANCE.NS · INFY.NS · AAPL) executed 34 agent-driven trades for +2.81% vs NIFTY 50 through a −12.23% max drawdown. Longer windows show sells and losses too — the trades are emergent from real signals, never seeded.
+
+![Backtest Lab](docs/img/05-backtest.png)
+
+**Risk Desk** — VaR, volatility, beta, drawdown, and correlation from the live ledger. It populates once the fund holds positions (below, the empty state on a fresh fund).
+
+![Risk Desk](docs/img/06-risk.png)
+
+**Settings** — fund config (universe, position cap, schedule, currency) and the 12 persona toggles.
+
+![Settings](docs/img/07-settings.png)
 
 ## The core loop
 
@@ -74,7 +98,8 @@ but the fund runs on its own.
   Tailwind, Supabase auth. Dark, dense, terminal-style; tabular numerals; green/red
   reserved for P&L.
 - **Decisions:** see `backend/docs/adr/` (001 langgraph, 002 cache, 003 persona
-  engine, 004 fund loop, 005 backtest, 006 risk).
+  engine, 004 fund loop, 005 backtest, 006 risk, 007 directional-conviction
+  aggregation).
 
 ## Getting started
 

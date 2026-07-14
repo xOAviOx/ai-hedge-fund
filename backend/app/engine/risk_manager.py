@@ -37,13 +37,18 @@ def risk_manager_agent(state: dict) -> dict:
         if n > 0:
             avg_conf = total_conf / n
 
+            # Confidence in a directional call reflects conviction among agents
+            # that took a side — not diluted by neutral abstainers. Dividing by
+            # ``n`` (all agents) made the buy threshold unreachable whenever
+            # several personas stayed neutral; use the directional vote count.
+            directional = bull + bear
             if bull > bear + 1:
                 consensus = "bullish"
-                adj_conf = min(90, int(avg_conf * (bull / n)))
+                adj_conf = min(90, int(avg_conf * (bull / directional))) if directional else int(avg_conf)
                 max_pos = 25000
             elif bear > bull + 1:
                 consensus = "bearish"
-                adj_conf = min(90, int(avg_conf * (bear / n)))
+                adj_conf = min(90, int(avg_conf * (bear / directional))) if directional else int(avg_conf)
                 max_pos = 5000
             else:
                 consensus = "neutral"
